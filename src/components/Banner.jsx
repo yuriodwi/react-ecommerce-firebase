@@ -2,7 +2,7 @@ import { useState } from "react";
 import { HiArrowRight, HiArrowLeft } from "react-icons/hi";
 
 const Banner = () => {
-  const [currenSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const data = [
     "https://amazonproone.vercel.app/static/media/img2.bc1bdb910ead16c65197.jpg",
     "https://amazonproone.vercel.app/static/media/img5.aa945e25375bfdee385f.jpg",
@@ -11,10 +11,10 @@ const Banner = () => {
   ];
 
   const prevSlide = () => {
-    setCurrentSlide(currenSlide === 0 ? 3 : (prev) => prev - 1);
+    setCurrentSlide(currentSlide === 0 ? 3 : (prev) => prev - 1);
   };
   const nextSlide = () => {
-    setCurrentSlide(currenSlide === 3 ? 0 : (prev) => prev + 1);
+    setCurrentSlide(currentSlide === 3 ? 0 : (prev) => prev + 1);
   };
 
   return (
