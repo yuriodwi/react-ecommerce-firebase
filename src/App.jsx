@@ -1,9 +1,13 @@
-const App = () => {
+import Header from "./components/Header";
+import Home from "./pages/Home";
+
+function App() {
   return (
-    <div>
-      <p>Hello World</p>
+    <div className="font-bodyFont">
+      <Header />
+      <Home />
     </div>
   );
-};
+}
 
 export default App;
