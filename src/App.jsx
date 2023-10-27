@@ -1,3 +1,4 @@
+import { productsData } from "./api/Api";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Cart from "./pages/Cart";
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: productsData,
       },
       {
         path: "/cart",

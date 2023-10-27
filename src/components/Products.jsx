@@ -1,6 +1,7 @@
 import ProductsCard from "./ProductsCard";
 
-const Products = () => {
+const Products = ({ products }) => {
+  console.log(products);
   return (
     <div className="py-10">
       <div className="flex flex-col items-center gap-4">
@@ -16,7 +17,7 @@ const Products = () => {
           pariatur architecto? Enim, quidem asperiores!
         </p>
       </div>
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-screen-xl mx-auto py-10">
         <ProductsCard />
       </div>
     </div>
