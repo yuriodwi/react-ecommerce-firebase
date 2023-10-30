@@ -10,7 +10,10 @@ const ProductsCard = ({ product }) => {
     return String(_id).toLowerCase().split(" ").join("");
   };
   const rootId = idString(_id);
-  console.log(rootId);
+  console.log(
+    "🚀 ~ file: ProductsCard.jsx:13 ~ ProductsCard ~ rootId:",
+    rootId
+  );
 
   const handleDetails = () => {
     navigate(`/product/${rootId}`, {
