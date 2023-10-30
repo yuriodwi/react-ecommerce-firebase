@@ -3,7 +3,7 @@ import { BsArrowRight } from "react-icons/bs";
 /* eslint-disable react/prop-types */
 const ProductsCard = ({ product }) => {
   return (
-    <div className="group">
+    <div className="group relative">
       <div className="w-full h-96 cursor-pointer overflow-hidden">
         <img
           className="w-full h-full object-cover group-hover:scale-110 duration-300"
@@ -30,6 +30,16 @@ const ProductsCard = ({ product }) => {
               </span>
             </p>
           </div>
+        </div>
+        <div>
+          <p>{product.category}</p>
+        </div>
+        <div className="absolute top-4 right-0">
+          {product.isNew && (
+            <p className="bg-black text-white font-semibold font-tittleFont px-6 py-1">
+              Sale
+            </p>
+          )}
         </div>
       </div>
     </div>
