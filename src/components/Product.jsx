@@ -9,7 +9,7 @@ const Product = () => {
   useEffect(() => {
     setDetails(location.state.item);
     console.log(location.state.item);
-  }, []);
+  }, [location.state.item]);
   return (
     <div>
       <div className="max-w-screen-xl mx-auto my-10 flex gap-10">
@@ -21,7 +21,7 @@ const Product = () => {
           />
           <div className="absolute top-4 right-0">
             {details.isNew && (
-              <p className="bg-black text-white font-semibold font-tittleFont px-6 py-1">
+              <p className="bg-black text-white font-semibold font-titleFont px-8 py-1">
                 Sale
               </p>
             )}
