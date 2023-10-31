@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { addToCart } from "../redux/bazarSlice";
 
 const Product = () => {
+  const dispatch = useDispatch();
   let [baseQty, setBaseQty] = useState(1);
   const [details, setDetails] = useState({});
   const location = useLocation();
@@ -76,7 +79,21 @@ const Product = () => {
                 </button>
               </div>
             </div>
-            <button className="bg-black text-white py-3 px-6 active:bg-gray-800">
+            <button
+              onClick={() =>
+                dispatch(
+                  addToCart({
+                    _id: details._id,
+                    title: details.title,
+                    image: details.image,
+                    price: details.price,
+                    quantity: baseQty,
+                    description: details.description,
+                  })
+                )
+              }
+              className="bg-black text-white py-3 px-6 active:bg-gray-800"
+            >
               add to cart
             </button>
           </div>
