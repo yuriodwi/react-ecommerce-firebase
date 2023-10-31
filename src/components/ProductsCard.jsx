@@ -2,6 +2,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../redux/bazarSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 /* eslint-disable react/prop-types */
 const ProductsCard = ({ product }) => {
@@ -61,7 +62,7 @@ const ProductsCard = ({ product }) => {
                     quantity: 1,
                     description: product.description,
                   })
-                )
+                ) & toast.success(`${product.title} is added`)
               }
               className="absolute z-20 w-[100px] text-gray-500 hover:text-gray-900 flex items-center gap-1 top-0 transform -translate-x-32 group-hover:translate-x-0 transition-transform cursor-pointer duration-300"
             >
@@ -83,6 +84,20 @@ const ProductsCard = ({ product }) => {
           )}
         </div>
       </div>
+      <ToastContainer
+        position="top-left"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        limit={3}
+        dela
+      />
     </div>
   );
 };

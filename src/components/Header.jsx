@@ -30,18 +30,20 @@ const Header = () => {
             <li className="text-base text-black font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300">
               Blog
             </li>
+          </ul>
+          <Link to="/cart">
             <div className="relative">
               <img className="w-6" src={cartImg} alt="cartImg" />
               <span className=" flex absolute w-6 top-2 text-sm items-center justify-center font-semibold">
                 {productData.length}
               </span>
             </div>
-            <img
-              className="w-8 h-8 rounded-full"
-              src="https://images.pexels.com/photos/264547/pexels-photo-264547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="userLogo"
-            />
-          </ul>
+          </Link>
+          <img
+            className="w-8 h-8 rounded-full"
+            src="https://images.pexels.com/photos/264547/pexels-photo-264547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="userLogo"
+          />
         </div>
       </div>
     </div>
