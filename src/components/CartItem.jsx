@@ -1,6 +1,11 @@
 import { MdOutlineClose } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteItem, resetCart } from "../redux/bazarSlice";
+import {
+  decrementQuantity,
+  deleteItem,
+  incrementQuantity,
+  resetCart,
+} from "../redux/bazarSlice";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { HiOutlineArrowLeft } from "react-icons/hi";
@@ -48,11 +53,39 @@ const CartItem = () => {
                 <div className="w-52 flex items-center justify-between text-gray-500 gap-4 border p-3">
                   <p className="text-sm">Quantity</p>
                   <div className="flex items-center gap-4 text-sm font-semibold">
-                    <button className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black">
+                    <button
+                      onClick={() =>
+                        dispatch(
+                          decrementQuantity({
+                            _id: item._id,
+                            title: item.title,
+                            image: item.image,
+                            price: item.price,
+                            quantity: 1,
+                            description: item.description,
+                          })
+                        )
+                      }
+                      className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black"
+                    >
                       -
                     </button>
-                    1
-                    <button className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black">
+                    {item.quantity}
+                    <button
+                      onClick={() =>
+                        dispatch(
+                          incrementQuantity({
+                            _id: item._id,
+                            title: item.title,
+                            image: item.image,
+                            price: item.price,
+                            quantity: 1,
+                            description: item.description,
+                          })
+                        )
+                      }
+                      className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black"
+                    >
                       +
                     </button>
                   </div>
