@@ -13,10 +13,10 @@ const Product = () => {
 
   useEffect(() => {
     setDetails(location.state.item);
-    console.log(
-      "🚀 ~ file: Product.jsx:12 ~ useEffect ~ location.state.item:",
-      location.state.item
-    );
+    // console.log(
+    // "🚀 ~ file: Product.jsx:12 ~ useEffect ~ location.state.item:",
+    // location.state.item
+    // );
   }, [location.state.item]);
 
   return (

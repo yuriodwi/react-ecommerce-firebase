@@ -15,8 +15,8 @@ const ProductsCard = ({ product }) => {
   };
   const rootId = idString(_id);
   // console.log(
-  //   "🚀 ~ file: ProductsCard.jsx:13 ~ ProductsCard ~ rootId:",
-  //   rootId
+  // "🚀 ~ file: ProductsCard.jsx:13 ~ ProductsCard ~ rootId:",
+  // rootId
   // );
 
   const handleDetails = () => {
