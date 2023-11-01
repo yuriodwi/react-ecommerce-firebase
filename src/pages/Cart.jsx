@@ -13,8 +13,8 @@ const Cart = () => {
       price += item.price * item.quantity;
       return price;
     });
-    setTotalAmount(price);
-    console.log("🚀 ~ file: Cart.jsx:15 ~ productData.map ~ price:", price);
+    setTotalAmount(price.toFixed(2));
+    // console.log("🚀 ~ file: Cart.jsx:15 ~ productData.map ~ price:", price);
   }, [productData]);
 
   // console.log("🚀 ~ file: Cart.jsx:5 ~ Cart ~ productData:", productData);
