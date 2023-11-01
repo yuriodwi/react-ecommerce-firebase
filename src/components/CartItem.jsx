@@ -1,7 +1,7 @@
 import { MdOutlineClose } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteItem } from "../redux/bazarSlice";
-import { toast } from "react-toastify";
+import { deleteItem, resetCart } from "../redux/bazarSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 const CartItem = () => {
   const dispatch = useDispatch();
@@ -53,6 +53,28 @@ const CartItem = () => {
           </div>
         ))}
       </div>
+      <button
+        onClick={() =>
+          dispatch(resetCart()) & toast.error("Your Cart Is Empty!")
+        }
+        className="bg-red-500 text-white mt-8 ml-7 py-1 px-6 hover:bg-red-800 duration-300"
+      >
+        Reset Cart
+      </button>
+      <ToastContainer
+        position="top-left"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        limit={3}
+        dela
+      />
     </div>
   );
 };
