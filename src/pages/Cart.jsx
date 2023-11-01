@@ -1,9 +1,22 @@
 import { useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
 import { ToastContainer } from "react-toastify";
+import { useEffect, useState } from "react";
 
 const Cart = () => {
   const productData = useSelector((state) => state.bazar.productData);
+  const [totalAmount, setTotalAmount] = useState("");
+
+  useEffect(() => {
+    let price = 0;
+    productData.map((item) => {
+      price += item.price * item.quantity;
+      return price;
+    });
+    setTotalAmount(price);
+    console.log("🚀 ~ file: Cart.jsx:15 ~ productData.map ~ price:", price);
+  }, [productData]);
+
   // console.log("🚀 ~ file: Cart.jsx:5 ~ Cart ~ productData:", productData);
   return (
     <div>
@@ -19,7 +32,9 @@ const Cart = () => {
             <h2 className="text-2xl font-medium">Cart Totals</h2>
             <p className="flex items-center gap-4 text-base">
               Subtotal{" "}
-              <span className="font-tittleFont font-bold text-lg">$200</span>
+              <span className="font-tittleFont font-bold text-lg">
+                ${totalAmount}
+              </span>
             </p>
             <p className="flex items-start gap-4 text-base">
               Shipping{" "}
@@ -30,7 +45,7 @@ const Cart = () => {
             </p>
           </div>
           <p className="font-tittleFont font-semibold flex justify-between mt-6">
-            Total <span className="text-xl font-bold">$200</span>
+            Total <span className="text-xl font-bold">${totalAmount}</span>
           </p>
           <button className="text-base bg-black text-white w-full py-3 mt-6 hover:bg-gray-800 duration-300">
             proceed to checkout
