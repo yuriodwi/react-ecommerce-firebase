@@ -3,7 +3,7 @@ import CartItem from "../components/CartItem";
 
 const Cart = () => {
   const productData = useSelector((state) => state.bazar.productData);
-  console.log("🚀 ~ file: Cart.jsx:5 ~ Cart ~ productData:", productData);
+  // console.log("🚀 ~ file: Cart.jsx:5 ~ Cart ~ productData:", productData);
   return (
     <div>
       <img
