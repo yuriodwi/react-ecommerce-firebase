@@ -2,6 +2,8 @@ import { MdOutlineClose } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteItem, resetCart } from "../redux/bazarSlice";
 import { ToastContainer, toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import { HiOutlineArrowLeft } from "react-icons/hi";
 
 const CartItem = () => {
   const dispatch = useDispatch();
@@ -17,7 +19,9 @@ const CartItem = () => {
       </div>
       <div>
         {productData.length === 0 ? (
-          <p className="pt-4">Your Cart Is Empty!!</p>
+          <div className="flex items-center justify-center w-full py-24">
+            <p className="pt-4">Your Cart Is Empty!!</p>
+          </div>
         ) : (
           <div>
             {productData.map((item) => (
@@ -60,16 +64,26 @@ const CartItem = () => {
         )}
       </div>
       {productData.length > 0 && (
-        <button
-          onClick={() => {
-            dispatch(resetCart());
-            toast.error("Your Cart Is Empty!");
-          }}
-          className="bg-red-500 text-white mt-8 ml-7 py-1 px-6 hover:bg-red-800 duration-300"
-        >
-          Reset Cart
-        </button>
+        <div>
+          <button
+            onClick={() => {
+              dispatch(resetCart());
+              toast.error("Your Cart Is Empty!");
+            }}
+            className="bg-red-500 text-white mt-8 ml-7 py-1 px-6 hover:bg-red-800 duration-300"
+          >
+            Reset Cart
+          </button>
+        </div>
       )}
+      <Link to="/">
+        <button className="flex mt-8 ml-7 items-center gap-1 text-gray-400 hover:text-black duration-300">
+          <span>
+            <HiOutlineArrowLeft />
+          </span>
+          go shopping
+        </button>
+      </Link>
       <ToastContainer
         position="top-left"
         autoClose={1500}
