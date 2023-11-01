@@ -1,7 +1,10 @@
 import { MdOutlineClose } from "react-icons/md";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteItem } from "../redux/bazarSlice";
+import { toast } from "react-toastify";
 
 const CartItem = () => {
+  const dispatch = useDispatch();
   const productData = useSelector((state) => state.bazar.productData);
   // console.log(
   // "🚀 ~ file: CartItem.jsx:6 ~ CartItem ~ productData:",
@@ -19,7 +22,13 @@ const CartItem = () => {
             className="flex items-center justify-between gap-6 mt-6"
           >
             <div className="flex items-center gap-2">
-              <MdOutlineClose className="text-xl text-gray-600 hover:text-red-600 cursor-pointer duration-300" />
+              <MdOutlineClose
+                onClick={() =>
+                  dispatch(deleteItem(item._id)) &
+                  toast.error(`${item.title} is removed`)
+                }
+                className="text-xl text-gray-600 hover:text-red-600 cursor-pointer duration-300"
+              />
               <img
                 className="w-32 h-32 object-cover"
                 src={item.image}
@@ -40,6 +49,7 @@ const CartItem = () => {
                 </button>
               </div>
             </div>
+            <p className="w-14">${item.quantity * item.price}</p>
           </div>
         ))}
       </div>
